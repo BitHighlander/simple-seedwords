@@ -1,45 +1,36 @@
 <template>
   <div class="hello">
+    <div class="input-field">
+      <input
+              type="text"
+              v-model="value"
+              :placeholder="placeholder"
+              @keyup="inputEvent"
+      />
+    </div>
+
+    <b-container class="bv-example-row">
+        <b-row>
+            <b-col>
+                <input class="border: none; is shorthand for border-style: none;" v-model="word1" placeholder="edit me" @paste="onPaste">
+                <input v-model="word2" placeholder="edit me" @paste="onPaste">
+                <input v-model="word3" placeholder="edit me" @paste="onPaste">
+                <input v-model="word4" placeholder="edit me" @paste="onPaste">
+                <input v-model="word5" placeholder="edit me" @paste="onPaste">
+                <input v-model="word6" placeholder="edit me" @paste="onPaste">
+            </b-col>
+            <b-col>
+                <input v-model="word7" placeholder="edit me" @paste="onPaste">
+                <input v-model="word8" placeholder="edit me" @paste="onPaste">
+                <input v-model="word9" placeholder="edit me" @paste="onPaste">
+                <input v-model="word10" placeholder="edit me" @paste="onPaste">
+                <input v-model="word11" placeholder="edit me" @paste="onPaste">
+                <input v-model="word12" placeholder="edit me" @paste="onPaste">
+            </b-col>
+        </b-row>
+    </b-container>
 
 
-    <textarea @paste="onPaste"></textarea>
-
-    <div class="control">
-      <input v-model="word1" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word2" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word3" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word4" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word5" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word6" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word7" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word8" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word9" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word10" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word11" placeholder="edit me" @paste="onPaste">
-    </div>
-    <div class="control">
-      <input v-model="word12" placeholder="edit me" @paste="onPaste">
-    </div>
 <!--    <h1>Finds</h1>-->
 <!--    <div v-for="find in finds">-->
 <!--      <input @paste="onPaste" v-model="find.value">-->
@@ -53,10 +44,14 @@
 </template>
 
 <script>
+
+  //TODO make all words one of these https://codepen.io/anon/pen/NQaevL
+
   const bip39 = require('bip39')
 
 export default {
   name: 'HelloWorld',
+  components: { SystemInformation },
   data() {
     return {
       word1:'',
@@ -122,6 +117,21 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
+  .input {
+    border: none !important;
+    border-color: transparent !important;
+  }
+
+  .form-control {
+  border: 0;
+}
+
+.no-border {
+  border: 0;
+  box-shadow: none; /* You may want to include this as bootstrap applies these styles too */
+}
+
 h3 {
   margin: 40px 0 0;
 }
